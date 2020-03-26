@@ -1,0 +1,66 @@
+.video-container {
+	z-index: 1;
+	position: relative;
+	width: 100%;
+	height: 56.25%;
+	border-radius: 10px;
+	box-shadow: 10px 11px 28px -6px rgba(0, 0, 0, 0.48);
+	overflow: hidden;
+}
+
+.video-graphic {
+	z-index: 10;
+	position: absolute;
+	width: 30%;
+	height: 30%;
+	bottom: 5%;
+	transform: translate3d(0, 130%, 0);
+	pointer-events: none;
+	transition: transform 400ms ease-in-out;
+}
+
+.video-graphic__bottom-left,
+.video-graphic__bottom-right {
+	transform: translate3d(0, 0, 0);
+}
+
+.video-graphic__bottom-left {
+	left: 0;
+}
+
+.video-graphic__bottom-right {
+	right: 0;
+}
+
+.poster-overlay {
+	z-index: 5;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	cursor: pointer;
+
+	&::after {
+		content: '';
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url('/assets/play.png');
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+
+		transition: opacity 100ms ease-in-out;
+	}
+}
+
+.poster-overlay:hover::after {
+	opacity: 1;
+}
